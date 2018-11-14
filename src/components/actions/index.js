@@ -1,4 +1,4 @@
-import { SAVE_COMMENT } from './types';
+import SAVE_COMMENT from './types';
 
 const saveComment = comment => ({
   type: SAVE_COMMENT,

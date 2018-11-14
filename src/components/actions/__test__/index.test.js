@@ -1,5 +1,5 @@
-import { SAVE_COMMENT } from '../types';
-import { saveComment } from '../index';
+import SAVE_COMMENT from '../types';
+import saveComment from '../index';
 
 describe('saveComment', () => {
   it('has a valid type', () => {
@@ -11,5 +11,4 @@ describe('saveComment', () => {
     const { payload } = saveComment('This is a new comment');
     expect(payload).toEqual('This is a new comment');
   });
-
 });

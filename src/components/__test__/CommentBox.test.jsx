@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import CommentBox from 'components/CommentBox';
+import CommentBox from '../CommentBox';
 import Root from '../../Root';
 
 let component;
@@ -8,8 +8,8 @@ let component;
 beforeEach(() => {
   component = mount(
     <Root>
-      <CommentBox/>
-    </Root>
+      <CommentBox />
+    </Root>,
   );
 });
 
@@ -22,13 +22,12 @@ it('has a text area and a button', () => {
   expect(component.find('button').length).toEqual(1);
 });
 
-
 describe('When testing text area', () => {
   beforeEach(() => {
     component.find('textarea').simulate('change', {
-      target: { value: 'This is a new comment' }
+      target: { value: 'This is a new comment' },
     });
-    
+
     component.update();
   });
 
@@ -38,7 +37,7 @@ describe('When testing text area', () => {
 
   it('makes text area empty when the form is submitted', () => {
     component.find('form').simulate('submit');
-    
+
     component.update();
 
     expect(component.find('textarea').prop('value')).toEqual('');

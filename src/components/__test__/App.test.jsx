@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from 'components/App';
-import CommentBox from 'components/CommentBox';
-import CommentList from 'components/CommentList';
+import App from '../App';
+import CommentBox from '../CommentBox';
+import CommentList from '../CommentList';
 
 let component;
 beforeEach(() => {
-  component = shallow(<App/>);
+  component = shallow(<App />);
 });
 
 it('shows a comment box', () => {
