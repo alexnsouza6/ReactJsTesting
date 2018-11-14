@@ -7,11 +7,9 @@ class CommentList extends Component {
     comments: PropTypes.node.isRequired,
   };
 
-  state = {};
-
   renderComments = () => {
     const { comments } = this.props;
-    comments.map(comment => <li key={comment}>{comment.title}</li>);
+    return comments.map(comment => <li key={comment}>{comment}</li>);
   };
 
   render() {
