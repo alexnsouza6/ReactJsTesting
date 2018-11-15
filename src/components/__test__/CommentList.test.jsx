@@ -20,3 +20,8 @@ beforeEach(() => {
 it('creates a li for each comment', () => {
   expect(component.find('li').length).toEqual(2);
 });
+
+it('checks for text within each li tag', () => {
+  expect(component.render().text()).toContain('Comment 1');
+  expect(component.render().text()).toContain('Comment 2');
+});
