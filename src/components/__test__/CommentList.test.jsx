@@ -17,6 +17,10 @@ beforeEach(() => {
   );
 });
 
+afterEach(() => {
+  component.unmount();
+});
+
 it('creates a li for each comment', () => {
   expect(component.find('li').length).toEqual(2);
 });

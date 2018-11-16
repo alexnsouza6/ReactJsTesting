@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import saveComment from './actions/index';
+import { saveComment, fetchComment } from './actions/index';
 
 class CommentBox extends Component {
   static propTypes = {
     saveComment: PropTypes.func.isRequired,
+    fetchComment: PropTypes.func.isRequired,
   };
 
   state = { comment: '' };
@@ -31,6 +32,11 @@ class CommentBox extends Component {
         <div>
           <button type="submit"> Submit </button>
         </div>
+        <div>
+          <button type="submit" className="fetch-comments" onClick={this.props.fetchComment}>
+            Fetch Comments
+          </button>
+        </div>
       </form>
     );
   }
@@ -38,5 +44,5 @@ class CommentBox extends Component {
 
 export default connect(
   null,
-  { saveComment },
+  { saveComment, fetchComment },
 )(CommentBox);

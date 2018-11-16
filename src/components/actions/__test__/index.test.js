@@ -1,9 +1,9 @@
-import SAVE_COMMENT from '../types';
-import saveComment from '../index';
+import { SAVE_COMMENT } from '../types';
+import { saveComment } from '../index';
 
 describe('saveComment', () => {
   it('has a valid type', () => {
-    const { type } = saveComment();
+    const { type } = saveComment('');
     expect(type).toEqual(SAVE_COMMENT);
   });
 
