@@ -35,7 +35,7 @@ it('fetches a list of comments when button is clicked', (done) => {
     .simulate('click');
   moxios.wait(() => {
     component.update();
-    expect(component.find(CommentList).find('li').length).toEqual(2);
+    expect(component.find(CommentList).find('li')).toHaveLength(2);
     done();
   });
 });
