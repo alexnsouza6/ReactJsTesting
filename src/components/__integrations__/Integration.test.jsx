@@ -1,22 +1,25 @@
 import React from 'react';
 import moxios from 'moxios';
 import { mount } from 'enzyme';
-import { MemoryRouter } from 'react-router-dom';
-import App from '../App';
-import CommentBox from '../CommentBox';
+import { MemoryRouter, Link } from 'react-router-dom';
 import Root from '../../Root';
+import App from '../App';
+import Header from '../Header';
+import CommentBox from '../CommentBox';
 import CommentList from '../CommentList';
 
 let component;
+const comments = [{ name: 'Fetched #1' }, { name: 'Fetched #2' }];
 
 beforeEach(() => {
   moxios.install();
   moxios.stubRequest('http://jsonplaceholder.typicode.com/comments', {
     status: 200,
-    response: [{ name: 'Fetched #1' }, { name: 'Fetched #2' }],
+    response: comments,
   });
+
   component = mount(
-    <MemoryRouter initialEntries={['/post']}>
+    <MemoryRouter initialEntries={['/post', '/']} initialIndex={0}>
       <Root>
         <App />
       </Root>
