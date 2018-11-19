@@ -23,7 +23,7 @@ class Header extends Component {
     return (
       <ul>
         <li>
-          <Link to="/"> Home </Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
           <Link to="/post"> Post a Comment </Link>

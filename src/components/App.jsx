@@ -7,7 +7,7 @@ import Header from './Header';
 export default () => (
   <Fragment>
     <Header />
+    <Route exact path="/" component={CommentList} />
     <Route path="/post" component={CommentBox} />
-    <Route path="/" component={CommentList} />
   </Fragment>
 );

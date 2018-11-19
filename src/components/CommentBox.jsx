@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { saveComment, fetchComment } from './actions/index';
@@ -24,20 +24,23 @@ class CommentBox extends Component {
 
   render() {
     const { comment } = this.state;
+    const { fetchComment } = this.props;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h4> Add a Comment </h4>
-        <textarea onChange={this.handleChange} value={comment} />
+      <Fragment>
+        <form onSubmit={this.handleSubmit}>
+          <h4> Add a Comment </h4>
+          <textarea onChange={this.handleChange} value={comment} />
+          <div>
+            <button type="submit"> Submit </button>
+          </div>
+        </form>
         <div>
-          <button type="submit"> Submit </button>
-        </div>
-        <div>
-          <button type="submit" className="fetch-comments" onClick={this.props.fetchComment}>
+          <button type="submit" className="fetch-comments" onClick={() => fetchComment()}>
             Fetch Comments
           </button>
         </div>
-      </form>
+      </Fragment>
     );
   }
 }
