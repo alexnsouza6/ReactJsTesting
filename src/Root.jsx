@@ -3,16 +3,12 @@ import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import reduxPromise from 'redux-promise';
 import { createStore, applyMiddleware, compose } from 'redux';
-import reducers from './components/reducers';
+import async from './middlewares/async';
 
 const Root = ({ children, initialState = {} }) => {
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-  const store = createStore(
-    reducers,
-    initialState,
-    composeEnhancers(applyMiddleware(reduxPromise)),
-  );
+  const store = createStore(async, initialState, composeEnhancers(applyMiddleware(reduxPromise)));
 
   return <Provider store={store}>{children}</Provider>;
 };

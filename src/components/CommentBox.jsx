@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { saveComment, fetchComment } from './actions/index';
+import requireAuth from './requireAuth';
 
 class CommentBox extends Component {
   static propTypes = {
@@ -11,11 +12,11 @@ class CommentBox extends Component {
 
   state = { comment: '' };
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({ comment: event.target.value });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     const { comment } = this.state;
     event.preventDefault();
     this.props.saveComment(comment);
@@ -48,4 +49,4 @@ class CommentBox extends Component {
 export default connect(
   null,
   { saveComment, fetchComment },
-)(CommentBox);
+)(requireAuth(CommentBox));
