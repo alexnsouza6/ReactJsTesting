@@ -3,7 +3,7 @@ export default ({ dispatch }) => next => action => {
   if (!payload || !payload.then) {
     return next(action);
   }
-  payload.then(response => {
+  return payload.then(response => {
     const newAction = { ...action, payload: response };
     dispatch(newAction);
   });
